@@ -22,8 +22,8 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Persona")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PersonaUTTT")]
+	public partial class DcGeneralDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -33,39 +33,39 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
     partial void InsertCatSexo(CatSexo instance);
     partial void UpdateCatSexo(CatSexo instance);
     partial void DeleteCatSexo(CatSexo instance);
-    partial void InsertPersona(Persona instance);
-    partial void UpdatePersona(Persona instance);
-    partial void DeletePersona(Persona instance);
     partial void InsertDireccion(Direccion instance);
     partial void UpdateDireccion(Direccion instance);
     partial void DeleteDireccion(Direccion instance);
+    partial void InsertPersona(Persona instance);
+    partial void UpdatePersona(Persona instance);
+    partial void DeletePersona(Persona instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
-				base(global::UTTT.Ejemplo.Linq.Data.Properties.Settings.Default.PersonaConnectionString1, mappingSource)
+		public DcGeneralDataContext() : 
+				base(global::UTTT.Ejemplo.Linq.Data.Properties.Settings.Default.PersonaUTTTConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public DcGeneralDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public DcGeneralDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DcGeneralDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DcGeneralDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -79,19 +79,19 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 			}
 		}
 		
-		public System.Data.Linq.Table<Persona> Persona
-		{
-			get
-			{
-				return this.GetTable<Persona>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Direccion> Direccion
 		{
 			get
 			{
 				return this.GetTable<Direccion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Persona> Persona
+		{
+			get
+			{
+				return this.GetTable<Persona>();
 			}
 		}
 	}
@@ -231,6 +231,205 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 		{
 			this.SendPropertyChanging();
 			entity.CatSexo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Direccion")]
+	public partial class Direccion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _idPersona;
+		
+		private string _strCalle;
+		
+		private string _strNumero;
+		
+		private string _strColonia;
+		
+		private EntityRef<Persona> _Persona;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnidPersonaChanging(int value);
+    partial void OnidPersonaChanged();
+    partial void OnstrCalleChanging(string value);
+    partial void OnstrCalleChanged();
+    partial void OnstrNumeroChanging(string value);
+    partial void OnstrNumeroChanged();
+    partial void OnstrColoniaChanging(string value);
+    partial void OnstrColoniaChanged();
+    #endregion
+		
+		public Direccion()
+		{
+			this._Persona = default(EntityRef<Persona>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPersona", DbType="Int NOT NULL")]
+		public int idPersona
+		{
+			get
+			{
+				return this._idPersona;
+			}
+			set
+			{
+				if ((this._idPersona != value))
+				{
+					if (this._Persona.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPersonaChanging(value);
+					this.SendPropertyChanging();
+					this._idPersona = value;
+					this.SendPropertyChanged("idPersona");
+					this.OnidPersonaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCalle", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string strCalle
+		{
+			get
+			{
+				return this._strCalle;
+			}
+			set
+			{
+				if ((this._strCalle != value))
+				{
+					this.OnstrCalleChanging(value);
+					this.SendPropertyChanging();
+					this._strCalle = value;
+					this.SendPropertyChanged("strCalle");
+					this.OnstrCalleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strNumero", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string strNumero
+		{
+			get
+			{
+				return this._strNumero;
+			}
+			set
+			{
+				if ((this._strNumero != value))
+				{
+					this.OnstrNumeroChanging(value);
+					this.SendPropertyChanging();
+					this._strNumero = value;
+					this.SendPropertyChanged("strNumero");
+					this.OnstrNumeroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColonia", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string strColonia
+		{
+			get
+			{
+				return this._strColonia;
+			}
+			set
+			{
+				if ((this._strColonia != value))
+				{
+					this.OnstrColoniaChanging(value);
+					this.SendPropertyChanging();
+					this._strColonia = value;
+					this.SendPropertyChanged("strColonia");
+					this.OnstrColoniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Direccion", Storage="_Persona", ThisKey="idPersona", OtherKey="id", IsForeignKey=true)]
+		public Persona Persona
+		{
+			get
+			{
+				return this._Persona.Entity;
+			}
+			set
+			{
+				Persona previousValue = this._Persona.Entity;
+				if (((previousValue != value) 
+							|| (this._Persona.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Persona.Entity = null;
+						previousValue.Direccion.Remove(this);
+					}
+					this._Persona.Entity = value;
+					if ((value != null))
+					{
+						value.Direccion.Add(this);
+						this._idPersona = value.id;
+					}
+					else
+					{
+						this._idPersona = default(int);
+					}
+					this.SendPropertyChanged("Persona");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -554,205 +753,6 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 		{
 			this.SendPropertyChanging();
 			entity.Persona = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Direccion")]
-	public partial class Direccion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _idPersona;
-		
-		private string _strCalle;
-		
-		private string _strNumero;
-		
-		private string _strColonia;
-		
-		private EntityRef<Persona> _Persona;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnidPersonaChanging(int value);
-    partial void OnidPersonaChanged();
-    partial void OnstrCalleChanging(string value);
-    partial void OnstrCalleChanged();
-    partial void OnstrNumeroChanging(string value);
-    partial void OnstrNumeroChanged();
-    partial void OnstrColoniaChanging(string value);
-    partial void OnstrColoniaChanged();
-    #endregion
-		
-		public Direccion()
-		{
-			this._Persona = default(EntityRef<Persona>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPersona", DbType="Int NOT NULL")]
-		public int idPersona
-		{
-			get
-			{
-				return this._idPersona;
-			}
-			set
-			{
-				if ((this._idPersona != value))
-				{
-					if (this._Persona.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidPersonaChanging(value);
-					this.SendPropertyChanging();
-					this._idPersona = value;
-					this.SendPropertyChanged("idPersona");
-					this.OnidPersonaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCalle", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string strCalle
-		{
-			get
-			{
-				return this._strCalle;
-			}
-			set
-			{
-				if ((this._strCalle != value))
-				{
-					this.OnstrCalleChanging(value);
-					this.SendPropertyChanging();
-					this._strCalle = value;
-					this.SendPropertyChanged("strCalle");
-					this.OnstrCalleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strNumero", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string strNumero
-		{
-			get
-			{
-				return this._strNumero;
-			}
-			set
-			{
-				if ((this._strNumero != value))
-				{
-					this.OnstrNumeroChanging(value);
-					this.SendPropertyChanging();
-					this._strNumero = value;
-					this.SendPropertyChanged("strNumero");
-					this.OnstrNumeroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColonia", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string strColonia
-		{
-			get
-			{
-				return this._strColonia;
-			}
-			set
-			{
-				if ((this._strColonia != value))
-				{
-					this.OnstrColoniaChanging(value);
-					this.SendPropertyChanging();
-					this._strColonia = value;
-					this.SendPropertyChanged("strColonia");
-					this.OnstrColoniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Direccion", Storage="_Persona", ThisKey="idPersona", OtherKey="id", IsForeignKey=true)]
-		public Persona Persona
-		{
-			get
-			{
-				return this._Persona.Entity;
-			}
-			set
-			{
-				Persona previousValue = this._Persona.Entity;
-				if (((previousValue != value) 
-							|| (this._Persona.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Persona.Entity = null;
-						previousValue.Direccion.Remove(this);
-					}
-					this._Persona.Entity = value;
-					if ((value != null))
-					{
-						value.Direccion.Add(this);
-						this._idPersona = value.id;
-					}
-					else
-					{
-						this._idPersona = default(int);
-					}
-					this.SendPropertyChanged("Persona");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

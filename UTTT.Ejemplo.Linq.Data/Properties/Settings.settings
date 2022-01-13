@@ -24,5 +24,13 @@ persist security info=True;</Value>
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=DESKTOP-J7JC9PJ;Initial Catalog=Persona;User ID=sa;Password=sa</Value>
     </Setting>
+    <Setting Name="PersonaUTTTConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=PersonaUTTT.mssql.somee.com;Initial Catalog=PersonaUTTT;Persist Security Info=True;User ID=lrv3_SQLLogin_1;Password=dmx11ciz66&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=PersonaUTTT.mssql.somee.com;Initial Catalog=PersonaUTTT;Persist Security Info=True;User ID=lrv3_SQLLogin_1;Password=dmx11ciz66</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
