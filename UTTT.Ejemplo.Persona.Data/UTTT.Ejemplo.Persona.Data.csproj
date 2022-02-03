@@ -8,8 +8,8 @@
     <ProjectGuid>{10213A66-AFF1-433D-BC09-B5C76B3A339A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UTTT.Ejemplo.Persona.Data</RootNamespace>
-    <AssemblyName>UTTT.Ejemplo.Persona.Data</AssemblyName>
+    <RootNamespace>UTTT.Ejemplo.Persona</RootNamespace>
+    <AssemblyName>UTTT.Ejemplo.Persona</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

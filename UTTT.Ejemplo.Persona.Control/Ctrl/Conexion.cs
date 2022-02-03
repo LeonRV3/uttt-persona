@@ -27,7 +27,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 SqlConnection conexion = new SqlConnection("Data Source=CX-CORP04\\MSSQLSERVER12;Initial Catalog=Persona;User ID=sa;Password=sqlexpress");
                 return conexion;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             { 
             
             }

@@ -26,17 +26,6 @@ namespace UTTT.Ejemplo.Linq.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=DESKTOP-J7JC9PJ;\ndatabase=Persona;\nIntegrated Security=SSPI;\npersist " +
-            "security info=True;")]
-        public string PersonaConnectionString {
-            get {
-                return ((string)(this["PersonaConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J7JC9PJ;Initial Catalog=Persona;User ID=sa;Password=sa")]
         public string PersonaConnectionString1 {
             get {
@@ -52,6 +41,28 @@ namespace UTTT.Ejemplo.Linq.Data.Properties {
         public string PersonaUTTTConnectionString {
             get {
                 return ((string)(this["PersonaUTTTConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PersonaUTTT.mssql.somee.com;Initial Catalog=PersonaUTTT;Persist Secur" +
+            "ity Info=True;User ID=lrv3_SQLLogin_1;Password=dmx11ciz66")]
+        public string PersonaConnectionString {
+            get {
+                return ((string)(this["PersonaConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PersonaUTTT.mssql.somee.com;Initial Catalog=PersonaUTTT;User ID=lrv3_" +
+            "SQLLogin_1;Password=dmx11ciz66")]
+        public string PersonaUTTTConnectionString1 {
+            get {
+                return ((string)(this["PersonaUTTTConnectionString1"]));
             }
         }
     }

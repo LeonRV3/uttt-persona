@@ -12,6 +12,8 @@ using System.Linq.Expressions;
 using System.Collections;
 using UTTT.Ejemplo.Persona.Control;
 using UTTT.Ejemplo.Persona.Control.Ctrl;
+using System.Net.Mail;
+using System.Net;
 
 #endregion
 
@@ -35,6 +37,7 @@ namespace UTTT.Ejemplo.Persona
         {
             try
             {
+                
                 this.Response.Buffer = true;
                 this.session = (SessionManager)this.Session["SessionManager"];
                 this.idPersona = this.session.Parametros["idPersona"] != null ?
@@ -96,6 +99,10 @@ namespace UTTT.Ejemplo.Persona
         {
             try
             {
+                if (!Page.IsValid)
+                {
+                    return;
+                }
                 DataContext dcGuardar = new DcGeneralDataContext();
                 UTTT.Ejemplo.Linq.Data.Entity.Persona persona = new Linq.Data.Entity.Persona();
                 if (this.idPersona == 0)
@@ -108,6 +115,14 @@ namespace UTTT.Ejemplo.Persona
                     dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se agrego correctamente.");
+
+
+
+                    sendEmailException("xd");
+                 
+
+
+
                     this.Response.Redirect("~/PersonaPrincipal.aspx", false);
                     
                 }
@@ -177,6 +192,24 @@ namespace UTTT.Ejemplo.Persona
                 }
             }
             _control.Items.FindByText(_value).Selected = true;
+        }
+
+        public static void sendEmailException(string message)
+        {
+            MailMessage mailMessage = new MailMessage();
+            SmtpClient smtpClient = new SmtpClient();
+            mailMessage.From = new MailAddress("19300694@uttt.edu.mx");
+            mailMessage.To.Add(new MailAddress("enjambre188@gmail.com"));
+            mailMessage.Subject = "StackTraceException de la aplicacion";
+            mailMessage.IsBodyHtml = true;
+            mailMessage.Body = "El siguiente stack de excepciones se produjo por un error interno en la aplicaciones= <br>" + message;
+            smtpClient.Port = 587;
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential("19300694@uttt.edu.mx", "LRR9334L");
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.Send(mailMessage);
         }
 
         #endregion

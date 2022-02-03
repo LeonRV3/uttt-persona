@@ -27,7 +27,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 conn.Close();
                 return true;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             {
 
             }
@@ -46,7 +48,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 conn.Close();
                 return true;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             {
 
             }
@@ -69,7 +73,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 conn.Close();
                 return true;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             {
 
             }
@@ -103,7 +109,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 conn.Close();
                 return lista;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             {
 
             }
@@ -133,7 +141,9 @@ namespace UTTT.Ejemplo.Persona.Control.Ctrl
                 Object objeto = direccionTemp;
                 return objeto;
             }
+#pragma warning disable CS0168 // La variable '_e' se ha declarado pero nunca se usa
             catch (Exception _e)
+#pragma warning restore CS0168 // La variable '_e' se ha declarado pero nunca se usa
             {
 
             }

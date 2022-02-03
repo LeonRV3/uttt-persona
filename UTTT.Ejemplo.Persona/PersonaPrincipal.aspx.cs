@@ -158,7 +158,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                throw _e;
+                
             }
         }
 

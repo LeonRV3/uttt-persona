@@ -135,13 +135,27 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPersona;
+#pragma warning disable CS0169 // El campo 'frmPrincipal.personaBindingSource' nunca se usa
         private System.Windows.Forms.BindingSource personaBindingSource;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.personaBindingSource' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.personaBindingSource1' nunca se usa
         private System.Windows.Forms.BindingSource personaBindingSource1;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.personaBindingSource1' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.strClaveUnicaDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn strClaveUnicaDataGridViewTextBoxColumn;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.strClaveUnicaDataGridViewTextBoxColumn' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.strNombreDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn strNombreDataGridViewTextBoxColumn;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.strNombreDataGridViewTextBoxColumn' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.strAPaternoDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn strAPaternoDataGridViewTextBoxColumn;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.strAPaternoDataGridViewTextBoxColumn' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.strAMaternoDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn strAMaternoDataGridViewTextBoxColumn;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.strAMaternoDataGridViewTextBoxColumn' nunca se usa
+#pragma warning disable CS0169 // El campo 'frmPrincipal.catSexoTempDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn catSexoTempDataGridViewTextBoxColumn;
+#pragma warning restore CS0169 // El campo 'frmPrincipal.catSexoTempDataGridViewTextBoxColumn' nunca se usa
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
